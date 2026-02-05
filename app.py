@@ -80,7 +80,7 @@ if menu=="Jugar":
 
     teams = [x[0] for x in c.execute("SELECT team FROM teams WHERE round=?",(round_name,)) if x[0] not in used]
 
-    choice = st.selectbox("Equipo",teams)
+    choice = st.selectbox("Selecciona tu equipo",teams)
 
     if st.button("Confirmar"):
         pid = c.execute("SELECT id FROM players WHERE name=?",(player,)).fetchone()[0]
