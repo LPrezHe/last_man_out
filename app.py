@@ -70,7 +70,7 @@ if menu=="Jugar":
         st.warning("Debes iniciar sesión")
         st.stop()
 
-    round_name = "Octavos"
+    round_name = "Playoffs"
 
     used = [x[0] for x in c.execute("""
         SELECT team FROM picks 
