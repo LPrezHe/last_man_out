@@ -16,6 +16,11 @@ st.title("🏆 Champions Last Man Out")
 
 menu = st.sidebar.selectbox("Menu",["Registro","Jugar","Tabla","Admin","Login"])
 
+if st.checkbox("Debug players"):
+    rows = c.execute("SELECT name, password FROM players").fetchall()
+    st.write(rows)
+
+
 if "user" not in st.session_state:
     st.session_state.user = None
 
