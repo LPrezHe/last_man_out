@@ -6,7 +6,7 @@ c = conn.cursor()
 
 octavos = [
     ("Playoffs","Real Madrid",1),
-    ("Playoffs","Benfica",1)
+    ("Playoffs","Benfica",1),
     ("Playoffs","PSG",1),
     ("Playoffs","Monaco",1),
     ("Playoffs","Newcastle",1),
