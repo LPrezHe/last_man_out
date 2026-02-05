@@ -2,12 +2,17 @@ import streamlit as st
 from db import get_conn, create_tables
 from game_logic import process_round
 from auth import hash_password, verify_password
+import os
+
+if os.path.exists("survivor.db"):
+    os.remove("survivor.db")
 
 create_tables()
+import seed
 conn = get_conn()
 c = conn.cursor()
 
-st.title("🏆 Champions Survivor")
+st.title("🏆 Champions Last Man Out")
 
 menu = st.sidebar.selectbox("Menu",["Registro","Jugar","Tabla","Admin","Login"])
 
