@@ -5,10 +5,15 @@ conn = get_conn()
 c = conn.cursor()
 
 octavos = [
-    ("Octavos","Real Madrid",1.4),
-    ("Octavos","Man City",1.3),
-    ("Octavos","PSG",1.9),
-    ("Octavos","Inter",2.5)
+    ("Playoffs","Real Madrid",1),
+    ("Playoffs","Benfica",1)
+    ("Playoffs","PSG",1),
+    ("Playoffs","Monaco",1),
+    ("Playoffs","Newcastle",1),
+    ("Playoffs","Qarabag",1),
+    ("Playoffs","Atalanta",1),
+    ("Playoffs","Dortmund",1)
+    
 ]
 
 for r,t,o in octavos:
