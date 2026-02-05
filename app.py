@@ -41,12 +41,22 @@ if menu=="Login":
     pw = st.text_input("Contraseña", type="password")
 
     if st.button("Entrar"):
-        data = c.execute("SELECT password FROM players WHERE name=?",(name,)).fetchone()
-        if data and verify_password(pw, data[0]):
-            st.session_state.user = name
-            st.success("Bienvenido " + name)
+        row = c.execute(
+            "SELECT password FROM players WHERE name=?",
+            (name,)
+        ).fetchone()
+
+        if row is None:
+            st.error("Usuario no existe")
         else:
-            st.error("Login incorrecto")
+            db_hash = row[0].strip()   # 🔥 ESTA LÍNEA ES LA CLAVE
+
+            if verify_password(pw, db_hash):
+                st.session_state.user = name
+                st.success("Bienvenido " + name)
+            else:
+                st.error("Contraseña incorrecta")
+
 
 # JUGAR
 if menu=="Jugar":

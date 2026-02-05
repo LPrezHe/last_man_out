@@ -9,13 +9,14 @@ def create_tables():
 
     c.execute("""
     CREATE TABLE IF NOT EXISTS players (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT UNIQUE,
-    password TEXT,
-    lives INTEGER DEFAULT 3,
-    points REAL DEFAULT 0
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT UNIQUE,
+        password TEXT NOT NULL,
+        lives INTEGER DEFAULT 3,
+        points REAL DEFAULT 0
     )
     """)
+
 
 
     c.execute("""
