@@ -7,18 +7,33 @@ def create_tables():
     conn = get_conn()
     c = conn.cursor()
 
+    # players
     c.execute("""
     CREATE TABLE IF NOT EXISTS players (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT UNIQUE,
-        password TEXT NOT NULL,
+        password TEXT,
         lives INTEGER DEFAULT 3,
-        points REAL DEFAULT 0
+        points INTEGER DEFAULT 0
     )
     """)
 
+    # Fix si la tabla vieja no tenía password
+    try:
+        c.execute("ALTER TABLE players ADD COLUMN password TEXT")
+    except:
+        pass
 
+    # teams
+    c.execute("""
+    CREATE TABLE IF NOT EXISTS teams (
+        round TEXT,
+        team TEXT,
+        alive INTEGER
+    )
+    """)
 
+    # picks
     c.execute("""
     CREATE TABLE IF NOT EXISTS picks (
         player_id INTEGER,
@@ -27,13 +42,5 @@ def create_tables():
     )
     """)
 
-    c.execute("""
-    CREATE TABLE IF NOT EXISTS teams (
-        round TEXT,
-        team TEXT,
-        odds REAL,
-        alive INTEGER DEFAULT 1
-    )
-    """)
-
     conn.commit()
+    conn.close()
