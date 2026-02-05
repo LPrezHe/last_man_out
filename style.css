@@ -1,0 +1,8 @@
+champions-last-man-out/
+│
+├── app.py              ← Streamlit (frontend)
+├── db.py               ← Conexión y queries
+├── game_logic.py       ← Reglas del juego
+├── seed.py             ← Cargar equipos iniciales
+├── requirements.txt
+└── survivor.db         ← SQLite (se crea solo)

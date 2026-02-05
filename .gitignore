@@ -1,0 +1,4 @@
+survivor.db
+__pycache__/
+.env
+*.log
